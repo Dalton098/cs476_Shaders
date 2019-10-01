@@ -48,8 +48,9 @@
     indexBuffer.numItems = 6;
 
     // Setup uniforms that will change at each frame
-    let center = new Float32Array([0, 0]);
+    let center = new Float32Array([0.0, 0.0]);
     let radius = 0.2;
+    let t =0.0;
 
     function render() {
         glcanvas.gl.useProgram(circleShader);
@@ -66,7 +67,11 @@
 
         // Step 3: Keep the animation loop going
         //center[0] += 0.001;
-        //radius += 0.001;
+        // radius += 0.001;
+        t += 0.01;
+        center[0] = 0.5 * Math.cos(t);
+        center[1] = 0.5 * Math.sin(t);
+
         requestAnimationFrame(render);
     }
 

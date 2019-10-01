@@ -10,7 +10,17 @@ uniform float uRadius;
 varying vec2 v_position;
 
 void main() {
-    //TODO: Fill this in
+    
+    vec2 diff = v_position - uCenter;
 
-    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    float mag = dot(diff, diff);
+
+    if(mag <= uRadius*uRadius) {
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+    else {
+        gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
+    }
+
+   
 }
